@@ -4,7 +4,7 @@
  */
 class MoneyLensAPI {
     constructor() {
-        this.baseUrl = "http://localhost:5000/api";
+        this.baseUrl = "https://moneylens-llta.onrender.com/api";
     }
 
     /**
