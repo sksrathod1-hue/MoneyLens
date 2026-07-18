@@ -1,0 +1,252 @@
+/* Dashboard Specific Styles - Restored and Enhanced */
+
+/* Welcome Banner */
+.welcome-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.greeting {
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+}
+
+.greeting-sub {
+    color: var(--text-muted);
+}
+
+/* Metric summary grids */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.metric-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.metric-card.income::after { background-color: var(--success); }
+.metric-card.expense::after { background-color: var(--danger); }
+.metric-card.net::after { background-color: var(--primary); }
+
+.m-icon {
+    font-size: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    border: 1px solid var(--border-color);
+}
+
+.income .m-icon { background-color: var(--success-glow); color: var(--success); }
+.expense .m-icon { background-color: var(--danger-glow); color: var(--danger); }
+.net .m-icon { background-color: var(--primary-glow); color: var(--text-main); }
+
+.m-details {
+    z-index: 2;
+}
+
+.m-title {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.m-val {
+    font-size: 28px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: #fff;
+}
+
+/* Dashboard Grid columns layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 24px;
+}
+
+.grid-col-left, .grid-col-right {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Mini Transactions list representation */
+.transactions-list-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tx-mini-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+}
+
+.tx-left-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tx-icon-bullet {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #fff;
+    border: 1px solid var(--border-color);
+}
+
+.tx-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.tx-desc {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-main);
+}
+
+.tx-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.tx-amount-val {
+    font-size: 15px;
+    font-weight: 400;
+}
+.tx-amount-val.income { color: var(--success); }
+.tx-amount-val.expense { color: var(--text-main); }
+
+/* Mini Budgets list progress representation */
+.budget-mini-item {
+    margin-bottom: 16px;
+}
+
+.budget-mini-item:last-child {
+    margin-bottom: 0;
+}
+
+.budget-meta-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.budget-bar-outer {
+    height: 8px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.budget-bar-inner {
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+.budget-bar-inner.warning { background-color: var(--warning); }
+.budget-bar-inner.danger { background-color: var(--danger); }
+
+/* AI insights styling card */
+.ai-insight-card {
+    background-color: #0b071a;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.insight-wrapper {
+    position: relative;
+}
+
+#insight-title {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+#insight-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.insight-tag {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 8px;
+    background-color: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    color: #c084fc;
+    border-radius: 6px;
+}
+
+/* SMS info Box */
+.sms-forward-card {
+    border-style: dashed;
+}
+.code-box {
+    margin-top: 12px;
+    padding: 8px 12px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+.code-box code {
+    font-family: monospace;
+    color: var(--text-main);
+    word-break: break-all;
+    margin-top: 4px;
+}

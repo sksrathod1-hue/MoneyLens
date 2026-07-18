@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables Font Overrides */
+:root {
+  --font-sans: "Space Mono", monospace;
+  --font-serif: "Space Mono", monospace;
+  --font-mono: "Space Mono", monospace;
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: "Space Mono", monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lenis Smooth Scroll Utilities */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f1f23;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2f2f35;
+}
+
+/* Fade up utilities */
+.fade-up-init {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1), transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.fade-up-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

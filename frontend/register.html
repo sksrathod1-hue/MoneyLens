@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyLens - Sign Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="auth-body">
+    <!-- Fullscreen Background Video -->
+    <video autoplay loop muted playsinline class="hero-bg-video">
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_171521_25968ba2-b594-4b32-aab7-f6b69398a6fa.mp4" type="video/mp4">
+    </video>
+    <div class="hero-bg-overlay"></div>
+
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <div class="auth-header">
+                <a href="index.html" class="auth-logo">🔮 Money<span>Lens</span></a>
+                <h2>Create Account</h2>
+                <p>Register to start tracking your finances automatically</p>
+            </div>
+            
+            <form id="registerForm" class="auth-form">
+                <div class="alert alert-danger" id="errorMessage" style="display: none;"></div>
+                <div class="alert alert-success" id="successMessage" style="display: none;"></div>
+                
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Choose a username" required autocomplete="username">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="you@example.com" required autocomplete="email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="At least 6 characters" required autocomplete="new-password">
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Log In</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script>
+        // Diagnostic helper to ensure video background autoplays successfully
+        (() => {
+            const video = document.querySelector('.hero-bg-video');
+            if (video) {
+                const handlePlayAttempt = () => {
+                    video.play().then(() => {
+                        console.log('Background video started successfully.');
+                    }).catch(err => {
+                        console.warn('Autoplay prevented. Retrying on user interaction:', err);
+                        const forcePlay = () => {
+                            video.play().then(() => {
+                                document.removeEventListener('click', forcePlay);
+                                document.removeEventListener('scroll', forcePlay);
+                            });
+                        };
+                        document.addEventListener('click', forcePlay);
+                        document.addEventListener('scroll', forcePlay);
+                    });
+                };
+
+                video.addEventListener('error', (e) => {
+                    console.error('Background video failed to load:', video.error);
+                });
+
+                if (video.paused) {
+                    handlePlayAttempt();
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

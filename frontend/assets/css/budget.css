@@ -1,0 +1,132 @@
+/* Budget Page Styling - Redesigned with Futuristic SynapseX Theme */
+.budget-layout {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 24px;
+}
+
+.budget-list-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Card representations */
+.budget-card-item {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.budget-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.budget-card-title {
+    font-size: 13px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.budget-card-color-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.budget-delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--danger);
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+.budget-delete-btn:hover {
+    opacity: 1;
+}
+
+.budget-amount-row {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+.budget-amount-row span {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.budget-progress-container {
+    margin-bottom: 16px;
+}
+
+.budget-progress-bar-outer {
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.04);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.budget-progress-bar-inner {
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 2px;
+    transition: width 0.3s;
+}
+.budget-progress-bar-inner.warning { background-color: var(--warning); }
+.budget-progress-bar-inner.danger { background-color: var(--danger); }
+
+.budget-limits-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.budget-date-range {
+    font-size: 10px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    padding-top: 12px;
+    margin-top: auto;
+}
+
+.budget-form-card {
+    align-self: flex-start;
+    position: sticky;
+    top: 32px;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+.form-row .form-group {
+    flex: 1;
+}
+
+@media(max-width: 991px) {
+    .budget-layout {
+        grid-template-columns: 1fr;
+    }
+}

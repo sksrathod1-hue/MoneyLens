@@ -1,0 +1,110 @@
+<!-- Sidebar Component Fragment -->
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <span class="logo-icon">🔮</span>
+        <span class="logo-text">Money<span>Lens</span></span>
+    </div>
+    
+    <nav class="sidebar-menu">
+        <a href="dashboard.html" data-menu="dashboard">
+            <span class="menu-icon">📊</span>
+            Dashboard
+        </a>
+        <a href="transactions.html" data-menu="transactions">
+            <span class="menu-icon">💸</span>
+            Transactions
+        </a>
+        <a href="reports.html" data-menu="reports">
+            <span class="menu-icon">📈</span>
+            Reports
+        </a>
+        <a href="budget.html" data-menu="budget">
+            <span class="menu-icon">🛡️</span>
+            Budgets
+        </a>
+        <a href="profile.html" data-menu="profile">
+            <span class="menu-icon">👤</span>
+            Profile
+        </a>
+        <a href="settings.html" data-menu="settings">
+            <span class="menu-icon">⚙️</span>
+            Settings
+        </a>
+    </nav>
+</aside>
+
+<script>
+    // Highlight the active page in the sidebar menu
+    (() => {
+        const path = window.location.pathname;
+        const page = path.split("/").pop().split(".")[0] || "dashboard";
+        const activeLink = document.querySelector(`.sidebar-menu a[data-menu="${page}"]`);
+        if (activeLink) {
+            activeLink.classList.add("active");
+        }
+    })();
+</script>
+
+<style>
+    .sidebar {
+        width: 240px;
+        background-color: rgba(6, 8, 12, 0.7);
+        backdrop-filter: blur(16px);
+        border-right: 1px solid var(--border-color);
+        padding: 32px 20px;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+    
+    .sidebar-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--font-heading);
+        font-size: 22px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 48px;
+    }
+    
+    .sidebar-logo span span {
+        color: var(--primary);
+    }
+    
+    .sidebar-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .sidebar-menu a {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 12px 16px;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-muted);
+        transition: all 0.2s;
+    }
+    
+    .sidebar-menu a:hover {
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.04);
+    }
+    
+    .sidebar-menu a.active {
+        color: #fff;
+        background-color: var(--primary);
+        box-shadow: 0 4px 12px var(--primary-glow);
+    }
+    
+    .menu-icon {
+        font-size: 18px;
+    }
+</style>

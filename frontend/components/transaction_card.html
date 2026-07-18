@@ -1,0 +1,18 @@
+<!-- Template Reference for manual injection of transaction items in JS -->
+<div class="tx-mini-item">
+    <div class="tx-left-block">
+        <!-- Style property dynamically set background-color to category color -->
+        <div class="tx-icon-bullet" style="background-color: {category_color};">
+            <!-- Icon mapped by category icon (e.g. coffee, home, car) -->
+            {category_icon}
+        </div>
+        <div class="tx-info">
+            <span class="tx-desc">{description}</span>
+            <span class="tx-meta">{date} {sms_sender_badge}</span>
+        </div>
+    </div>
+    <!-- Class property set 'income' or 'expense' -->
+    <span class="tx-amount-val {type}">
+        {sign}${amount}
+    </span>
+</div>

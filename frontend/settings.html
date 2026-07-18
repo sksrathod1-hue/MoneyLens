@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyLens - Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- Inline settings layout CSS since it is specific to settings page -->
+    <style>
+        .settings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .category-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .category-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px -2px rgba(0, 0, 0, 0.1);
+        }
+        .category-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .cat-icon-bullet {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #fff;
+        }
+        .cat-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .cat-name {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+        .cat-type {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+        }
+        .cat-status {
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.05);
+            color: var(--text-muted);
+        }
+        .color-selector {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .color-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .color-dot.active {
+            border-color: #fff;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="app-body">
+    
+    <div class="app-wrapper">
+        <div id="sidebar-container"></div>
+        
+        <main class="main-content">
+            <div id="navbar-container"></div>
+            
+            <div class="content-body">
+                <div class="page-title-row">
+                    <div>
+                        <h1>System Settings</h1>
+                        <p>Customize categories, configurations and notifications preferences</p>
+                    </div>
+                </div>
+                
+                <div class="settings-grid">
+                    <!-- Manage Categories -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Manage Categories</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="categoriesList" style="max-height: 400px; overflow-y: auto; padding-right: 8px;">
+                                <!-- Populated dynamically -->
+                                <p class="text-center text-muted">Loading categories...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Create Custom Category -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Add Custom Category</h3>
+                        </div>
+                        <form id="categoryForm" class="card-body">
+                            <div class="alert alert-danger" id="catError" style="display: none;"></div>
+                            <div class="alert alert-success" id="catSuccess" style="display: none;"></div>
+                            
+                            <div class="form-group">
+                                <label for="catName">Category Name</label>
+                                <input type="text" id="catName" placeholder="e.g. Subscriptions" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="catType">Category Flow Type</label>
+                                <select id="catType">
+                                    <option value="expense">Expense (Outflow)</option>
+                                    <option value="income">Income (Inflow)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="catIcon">Icon Picker</label>
+                                <select id="catIcon">
+                                    <option value="tag">🏷️ Tag</option>
+                                    <option value="coffee">☕ Coffee</option>
+                                    <option value="shopping-bag">🛍️ Shopping</option>
+                                    <option value="briefcase">💼 Briefcase</option>
+                                    <option value="car">🚗 Car</option>
+                                    <option value="home">🏠 Home</option>
+                                    <option value="bolt">⚡ Bolt</option>
+                                    <option value="film">🎬 Film</option>
+                                    <option value="heartbeat">❤️ Heart</option>
+                                    <option value="gift">🎁 Gift</option>
+                                    <option value="plane">✈️ Plane</option>
+                                    <option value="book">📚 Book</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Pick Brand Color</label>
+                                <div class="color-selector" id="colorSelector">
+                                    <div class="color-dot active" style="background-color: #95a5a6;" data-color="#95a5a6"></div>
+                                    <div class="color-dot" style="background-color: #3498db;" data-color="#3498db"></div>
+                                    <div class="color-dot" style="background-color: #2ecc71;" data-color="#2ecc71"></div>
+                                    <div class="color-dot" style="background-color: #e74c3c;" data-color="#e74c3c"></div>
+                                    <div class="color-dot" style="background-color: #f1c40f;" data-color="#f1c40f"></div>
+                                    <div class="color-dot" style="background-color: #9b59b6;" data-color="#9b59b6"></div>
+                                    <div class="color-dot" style="background-color: #e67e22;" data-color="#e67e22"></div>
+                                    <div class="color-dot" style="background-color: #1abc9c;" data-color="#1abc9c"></div>
+                                    <div class="color-dot" style="background-color: #34495e;" data-color="#34495e"></div>
+                                    <div class="color-dot" style="background-color: #d35400;" data-color="#d35400"></div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">Create Category</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="footer-container"></div>
+        </main>
+    </div>
+    
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/main.js"></script>
+    <!-- Include settings custom handler -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const api = new MoneyLensAPI();
+            if (!api.getToken()) {
+                window.location.href = "login.html";
+                return;
+            }
+            
+            // Handle color selection
+            const colorSelector = document.getElementById("colorSelector");
+            let selectedColor = "#95a5a6";
+            
+            colorSelector.addEventListener("click", (e) => {
+                if (e.target.classList.contains("color-dot")) {
+                    document.querySelectorAll(".color-dot").forEach(dot => dot.classList.remove("active"));
+                    e.target.classList.add("active");
+                    selectedColor = e.target.getAttribute("data-color");
+                }
+            });
+            
+            // Fetch and render categories
+            const categoriesList = document.getElementById("categoriesList");
+            
+            async function loadCategories() {
+                try {
+                    const response = await api.request("/settings/categories");
+                    categoriesList.innerHTML = "";
+                    if (response && response.length > 0) {
+                        response.forEach(cat => {
+                            const iconMap = {
+                                "briefcase": "💼", "laptop": "💻", "trending-up": "📈",
+                                "coffee": "☕", "home": "🏠", "bolt": "⚡",
+                                "car": "🚗", "film": "🎬", "shopping-cart": "🛒",
+                                "shopping-bag": "🛍️", "heartbeat": "❤️", "tag": "🏷️"
+                            };
+                            const visualIcon = iconMap[cat.icon] || "🏷️";
+                            const item = document.createElement("div");
+                            item.className = "category-item";
+                            item.innerHTML = `
+                                <div class="category-badge">
+                                    <div class="cat-icon-bullet" style="background-color: ${cat.color};">${visualIcon}</div>
+                                    <div class="cat-info">
+                                        <span class="cat-name">${cat.name}</span>
+                                        <span class="cat-type">${cat.type}</span>
+                                    </div>
+                                </div>
+                                <span class="cat-status">${cat.is_default ? 'System Default' : 'Custom'}</span>
+                            `;
+                            categoriesList.appendChild(item);
+                        });
+                    } else {
+                        categoriesList.innerHTML = `<p class="text-center text-muted">No categories set.</p>`;
+                    }
+                } catch (error) {
+                    console.error("Error loading categories:", error);
+                    categoriesList.innerHTML = `<p class="text-center text-danger">Failed to load categories.</p>`;
+                }
+            }
+            
+            // Form submission
+            const categoryForm = document.getElementById("categoryForm");
+            const catError = document.getElementById("catError");
+            const catSuccess = document.getElementById("catSuccess");
+            
+            categoryForm.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                catError.style.display = "none";
+                catSuccess.style.display = "none";
+                
+                const name = document.getElementById("catName").value.trim();
+                const type = document.getElementById("catType").value;
+                const icon = document.getElementById("catIcon").value;
+                
+                try {
+                    await api.request("/settings/categories", "POST", {
+                        name, type, icon, color: selectedColor
+                    });
+                    
+                    catSuccess.textContent = "Category created successfully!";
+                    catSuccess.style.display = "block";
+                    categoryForm.reset();
+                    document.querySelectorAll(".color-dot").forEach(dot => dot.classList.remove("active"));
+                    document.querySelector(".color-dot").classList.add("active");
+                    selectedColor = "#95a5a6";
+                    
+                    // Reload category list
+                    loadCategories();
+                } catch (error) {
+                    catError.textContent = error.message || "Failed to create category.";
+                    catError.style.display = "block";
+                }
+            });
+            
+            loadCategories();
+        });
+    </script>
+</body>
+</html>

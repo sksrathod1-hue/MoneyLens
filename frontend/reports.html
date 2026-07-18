@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyLens - Financial Reports</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link class="page-css" rel="stylesheet" href="assets/css/reports.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- Chart.js CDN for beautiful reports graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="app-body">
+    
+    <div class="app-wrapper">
+        <div id="sidebar-container"></div>
+        
+        <main class="main-content">
+            <div id="navbar-container"></div>
+            
+            <div class="content-body">
+                <div class="page-title-row">
+                    <div>
+                        <h1>Financial Reports</h1>
+                        <p>Analyze income vs expenses, category spends, and monthly trends</p>
+                    </div>
+                    <div class="date-range-selector">
+                        <input type="date" id="reportStartDate">
+                        <span class="to-text">to</span>
+                        <input type="date" id="reportEndDate">
+                        <button class="btn btn-secondary" id="updateReportBtn">Update</button>
+                    </div>
+                </div>
+                
+                <!-- Reports Visualization Grid -->
+                <div class="reports-grid">
+                    
+                    <!-- Spending by Category (Pie Chart) -->
+                    <div class="card report-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Category Distribution</h3>
+                        </div>
+                        <div class="card-body chart-wrapper">
+                            <canvas id="categoryChart"></canvas>
+                            <div id="categoryChartPlaceholder" class="chart-placeholder text-muted" style="display: none;">
+                                No spending data available for this range.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Income vs Expenses (Bar Chart) -->
+                    <div class="card report-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Income vs Expenses</h3>
+                        </div>
+                        <div class="card-body chart-wrapper">
+                            <canvas id="comparisonChart"></canvas>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Monthly trends line/bar chart -->
+                <div class="card report-card mt-20">
+                    <div class="card-header">
+                        <h3 class="card-title">6-Month Trend</h3>
+                    </div>
+                    <div class="card-body chart-wrapper trend-wrapper">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="footer-container"></div>
+        </main>
+    </div>
+    
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/charts.js"></script>
+    <script src="assets/js/reports.js"></script>
+</body>
+</html>

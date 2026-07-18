@@ -1,0 +1,518 @@
+/* MoneyLens Global CSS variables & layout foundation - Money VR Alpaca Layout */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Anton+SC&display=swap');
+
+:root {
+    /* Color Palette - Cybernetic Monochromatic Dark Mode */
+    --bg-main: #000000;
+    --bg-surface: #0a0a0c;
+    --bg-card: #111115;
+    --border-color: rgba(255, 255, 255, 0.08);
+    
+    --primary: #eab308;
+    --primary-hover: #ca8a04;
+    --primary-glow: rgba(234, 179, 8, 0.3);
+    
+    --success: #3ef0a5;
+    --success-glow: rgba(62, 240, 165, 0.12);
+    
+    --danger: #ff5252;
+    --danger-glow: rgba(255, 82, 82, 0.12);
+    
+    --warning: #ffd13b;
+    
+    --text-main: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.45);
+    --text-dark: #000000;
+    
+    /* Typography - Space Mono for headers/UI, monospace base */
+    --font-heading: 'Space Mono', monospace;
+    --font-body: 'Space Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Typography elements */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
+a {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover {
+    color: var(--text-muted);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* Premium Buttons Styling */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ca8a04 0%, #eab308 100%);
+    color: #000000;
+    font-weight: 700;
+    box-shadow: 0 4px 14px var(--primary-glow);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.btn-primary:hover {
+    background: linear-gradient(135deg, #eab308 0%, #facc15 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(234, 179, 8, 0.45);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.04);
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: translateY(-1px);
+}
+
+.btn-block {
+    display: flex;
+    width: 100%;
+}
+
+.btn-lg {
+    padding: 14px 28px;
+    font-size: 16px;
+}
+
+/* Card layout */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 16px;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.card-action {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+/* Alert notifications styles */
+.alert {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+.alert-danger {
+    background-color: var(--danger-glow);
+    color: var(--danger);
+    border: 1px solid rgba(255, 82, 82, 0.2);
+}
+.alert-success {
+    background-color: var(--success-glow);
+    color: var(--success);
+    border: 1px solid rgba(62, 240, 165, 0.2);
+}
+
+/* App structure layout styles */
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-main);
+    min-width: 0;
+}
+
+.content-body {
+    flex: 1;
+    padding: 32px;
+}
+
+/* Header styling */
+.landing-header {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+}
+.navbar-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.03em;
+}
+.landing-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.btn-link {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+.btn-link:hover {
+    color: var(--text-main);
+}
+
+/* Giant background watermark */
+.background-watermark {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+}
+.background-watermark h1 {
+    font-family: 'Anton SC', sans-serif;
+    font-size: clamp(100px, 25vw, 521px);
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    opacity: 0.10;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Fullscreen Hero Section - Replicating VR Alpaca screenshot layout */
+.hero-section-fullscreen {
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    background: transparent;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: flex-end;
+    padding: 100px 48px 48px 48px;
+    overflow: hidden;
+}
+
+.hero-bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.hero-section-fullscreen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.8;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.hero-layout-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    width: 100%;
+    align-items: end;
+    position: relative;
+    z-index: 20;
+}
+
+/* Left side header styles */
+.hero-col-left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 24px;
+    z-index: 30;
+}
+
+.hero-main-title {
+    color: #fff;
+    font-size: clamp(40px, 6.5vw, 90px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    font-weight: 300;
+    text-transform: none;
+}
+
+.hero-main-subtext {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-w-xs;
+    font-weight: 300;
+}
+
+.hero-btn-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+/* Center visual wrapper (Absolute Centered) */
+.hero-col-center {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 10;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.alpaca-hero-img {
+    height: 58vh; /* Framed beautifully in the center height */
+    width: auto;
+    max-width: 90vw;
+    object-fit: contain;
+    mix-blend-mode: normal; /* Normal blend mode for photographic detail */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.65);
+    transform-origin: bottom center;
+    transform: perspective(1000px) scale(1.12);
+    margin-bottom: 12vh; /* Lift it off the bottom slightly */
+}
+
+/* Right side header styles */
+.hero-col-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-bottom: 24px;
+}
+
+.hero-right-title {
+    color: #fff;
+    font-size: clamp(40px, 6.5vw, 90px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    font-weight: 300;
+    text-align: right;
+}
+
+/* Features */
+.features-section {
+    padding: 100px 0;
+    border-top: 1px solid var(--border-color);
+    background-color: transparent;
+    position: relative;
+    z-index: 30;
+}
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+.feature-card {
+    background-color: rgba(22, 22, 30, 0.45);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 32px;
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+.feat-icon {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--text-muted);
+}
+.feature-card h3 {
+    margin-bottom: 12px;
+}
+.feature-card p {
+    color: var(--text-muted);
+}
+
+/* Footer landing */
+.landing-footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    background-color: transparent;
+    position: relative;
+    z-index: 30;
+}
+.mt-20 { margin-top: 20px; }
+.text-muted { color: var(--text-muted); }
+.text-center { text-align: center; }
+.p-40 { padding: 40px; }
+
+@media (max-width: 991px) {
+    .hero-layout-grid {
+        grid-template-columns: 1fr;
+        align-items: center;
+        gap: 32px;
+    }
+    .hero-section-fullscreen {
+        height: auto;
+        min-height: auto;
+        padding: 140px 24px 48px 24px;
+    }
+    .hero-col-left, .hero-col-right {
+        align-items: center;
+        text-align: center;
+        padding-bottom: 0;
+    }
+    .hero-right-title {
+        text-align: center;
+    }
+    .alpaca-hero-img {
+        max-height: 50vh;
+    }
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}

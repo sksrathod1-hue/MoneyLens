@@ -1,0 +1,74 @@
+/* Responsive layout media queries */
+
+@media (max-width: 1024px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    .cta-group {
+        justify-content: center;
+    }
+    .hero-content h1 {
+        font-size: 42px;
+    }
+    .dashboard-grid, 
+    .budget-layout, 
+    .profile-layout,
+    .settings-grid {
+        grid-template-columns: 1fr;
+    }
+    .add-tx-panel {
+        width: 100%;
+        position: static;
+    }
+    .budget-form-card {
+        position: static;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .app-wrapper {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100% !important;
+        height: auto !important;
+        position: static !important;
+        border-right: none !important;
+        border-bottom: 1px solid var(--border-color);
+        padding: 16px !important;
+    }
+    .sidebar-menu {
+        flex-direction: row !important;
+        overflow-x: auto;
+        padding-bottom: 8px;
+    }
+    .sidebar-menu a {
+        white-space: nowrap;
+    }
+    .content-body {
+        padding: 16px;
+    }
+    .welcome-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .page-title-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .reports-grid {
+        grid-template-columns: 1fr;
+    }
+}

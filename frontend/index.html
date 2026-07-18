@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyLens - Smart Personal Finance Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body class="landing-body">
+    <!-- Fullscreen Background Video -->
+    <video autoplay loop muted playsinline class="hero-bg-video">
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_171521_25968ba2-b594-4b32-aab7-f6b69398a6fa.mp4" type="video/mp4">
+    </video>
+    <!-- Dark overlay to ensure text contrast -->
+    <div class="hero-bg-overlay"></div>
+    
+    <!-- Giant display background watermark -->
+    <div class="background-watermark">
+        <h1>MONEYLENS</h1>
+    </div>
+
+    <!-- Header/Navigation -->
+    <header class="landing-header">
+        <div class="container navbar-flex">
+            <div class="logo-area">
+                <svg width="18" height="18" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 50,50 L 50,15 A 35,35 0 0,1 85,50 Z" fill="currentColor" />
+                    <path d="M 50,50 L 85,50 A 35,35 0 0,1 50,85 Z" fill="currentColor" />
+                    <path d="M 50,50 L 50,85 A 35,35 0 0,1 15,50 Z" fill="currentColor" />
+                    <path d="M 50,50 L 15,50 A 35,35 0 0,1 50,15 Z" fill="currentColor" />
+                </svg>
+                <span class="logo-text">MoneyLens</span>
+            </div>
+            <nav class="landing-nav">
+                <a href="login.html" class="btn-link">Log In</a>
+                <a href="register.html" class="btn btn-primary">Start Free</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Custom Viewport Hero Section (SynapseX layout copy) -->
+    <section class="hero-section-fullscreen">
+        
+        <!-- Absolute Centered VR Alpaca (Fills screen height) -->
+        <div class="hero-col-center">
+            <img src="assets/images/hero_budget.jpg" alt="Indian Union Budget - MoneyLens Logo Visual" class="alpaca-hero-img">
+        </div>
+
+        <!-- 2-Column Text Grid overlaid on top -->
+        <div class="hero-layout-grid">
+            
+            <!-- Left Column: Bold main titles and description -->
+            <div class="hero-col-left">
+                <h1 class="hero-main-title">
+                    kamao tum<br>hisab hum karege
+                </h1>
+                <p class="hero-main-subtext">
+                    Built at the intersection of financial tracking and artificial intelligence. MoneyLens.
+                </p>
+                <div class="hero-btn-row">
+                    <a href="register.html" class="btn btn-primary">Get Started</a>
+                    <a href="#features" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Right Column: Secondary bold callout -->
+            <div class="hero-col-right">
+                <h1 class="hero-right-title">
+                    Absolute<br>Clarity
+                </h1>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title">Designed for modern wealth tracking</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feat-icon">📱</div>
+                    <h3>SMS Auto-Syncing</h3>
+                    <p>Forward bank SMS logs to parse transactions instantly. No manual typing needed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feat-icon">📊</div>
+                    <h3>Smart Category Insights</h3>
+                    <p>Visual analytics breakdown by category to locate where your money is flowing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feat-icon">🤖</div>
+                    <h3>AI Financial Advisor</h3>
+                    <p>Get personalized alerts, warnings, and strategies derived from your habits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+        <div class="container">
+            <p>&copy; 2026 MoneyLens. Engineered for absolute financial clarity.</p>
+        </div>
+    </footer>
+    
+    <script src="assets/js/hero-tilt.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Diagnostic helper to ensure video background autoplays successfully
+        (() => {
+            const video = document.querySelector('.hero-bg-video');
+            if (video) {
+                const handlePlayAttempt = () => {
+                    video.play().then(() => {
+                        console.log('Background video started successfully.');
+                    }).catch(err => {
+                        console.warn('Autoplay prevented. Retrying on user interaction:', err);
+                        const forcePlay = () => {
+                            video.play().then(() => {
+                                document.removeEventListener('click', forcePlay);
+                                document.removeEventListener('scroll', forcePlay);
+                            });
+                        };
+                        document.addEventListener('click', forcePlay);
+                        document.addEventListener('scroll', forcePlay);
+                    });
+                };
+
+                video.addEventListener('error', (e) => {
+                    console.error('Background video failed to load:', video.error);
+                });
+
+                if (video.paused) {
+                    handlePlayAttempt();
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

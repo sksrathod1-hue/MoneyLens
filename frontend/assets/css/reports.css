@@ -1,0 +1,58 @@
+/* Reports page styles - Redesigned with Futuristic SynapseX Theme */
+.date-range-selector {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.date-range-selector input[type="date"] {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: var(--text-main);
+    font-size: 12px;
+    font-family: var(--font-body);
+}
+
+.to-text {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.reports-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.report-card {
+    height: 100%;
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trend-wrapper {
+    height: 350px;
+}
+
+.chart-placeholder {
+    font-size: 12px;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .reports-grid {
+        grid-template-columns: 1fr;
+    }
+    .date-range-selector {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

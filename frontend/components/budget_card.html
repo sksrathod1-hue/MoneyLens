@@ -1,0 +1,31 @@
+<!-- Template Reference for manual injection of budget items in JS -->
+<div class="budget-card-item">
+    <div class="budget-card-header">
+        <div class="budget-card-title">
+            <span class="budget-card-color-dot" style="background-color: {category_color}"></span>
+            {category_name}
+        </div>
+        <button class="budget-delete-btn" data-id="{id}">🗑️</button>
+    </div>
+    
+    <div class="budget-amount-row">
+        ${spent} <span>/ ${limit} limit</span>
+    </div>
+    
+    <div class="budget-progress-container">
+        <div class="budget-progress-bar-outer">
+            <!-- Width matches spending percent, class matches alert state (warning, danger) -->
+            <div class="budget-progress-bar-inner {alert_state}" style="width: {percent}%;"></div>
+        </div>
+        <div class="budget-limits-row">
+            <span>{percent}% spent</span>
+            <span class="{remaining_class}">
+                {remaining_label} ${remaining_amount}
+            </span>
+        </div>
+    </div>
+    
+    <div class="budget-date-range">
+        Period: {start_date} to {end_date}
+    </div>
+</div>

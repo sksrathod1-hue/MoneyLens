@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyLens - Budgets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link class="page-css" rel="stylesheet" href="assets/css/budget.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="app-body">
+    
+    <div class="app-wrapper">
+        <div id="sidebar-container"></div>
+        
+        <main class="main-content">
+            <div id="navbar-container"></div>
+            
+            <div class="content-body">
+                <div class="page-title-row">
+                    <div>
+                        <h1>Category Budgets</h1>
+                        <p>Set spending targets and monitor active limits</p>
+                    </div>
+                </div>
+                
+                <div class="budget-layout">
+                    <!-- Budgets Progress Grid -->
+                    <div class="budget-list-area">
+                        <div class="grid-layout" id="budgetsGrid">
+                            <!-- Populated dynamically -->
+                            <div class="card text-center text-muted p-40">
+                                Loading budgets...
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Set New Budget Form Card -->
+                    <div class="card budget-form-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Set Category Budget</h3>
+                        </div>
+                        <form id="budgetForm" class="card-body">
+                            <div class="alert alert-danger" id="budgetFormError" style="display: none;"></div>
+                            
+                            <div class="form-group">
+                                <label for="budgetCategory">Category</label>
+                                <select id="budgetCategory" required>
+                                    <option value="">Select Category</option>
+                                    <!-- Populated dynamically -->
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="budgetAmount">Monthly Budget Limit (₹)</label>
+                                <input type="number" step="1" id="budgetAmount" placeholder="e.g. 500" required min="1">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="budgetPeriod">Frequency</label>
+                                <select id="budgetPeriod">
+                                    <option value="monthly">Monthly</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="yearly">Yearly</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group col-6">
+                                    <label for="budgetStartDate">Start Date</label>
+                                    <input type="date" id="budgetStartDate" required>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="budgetEndDate">End Date</label>
+                                    <input type="date" id="budgetEndDate" required>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">Establish Budget</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="footer-container"></div>
+        </main>
+    </div>
+    
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/budget.js"></script>
+</body>
+</html>

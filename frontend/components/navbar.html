@@ -1,0 +1,80 @@
+<!-- Navbar Component Fragment -->
+<header class="app-navbar">
+    <div class="navbar-left">
+        <span class="date-today" id="nav-date-display">Today</span>
+    </div>
+    <div class="navbar-right">
+        <!-- User account area -->
+        <div class="user-pill">
+            <span class="user-avatar">👤</span>
+            <span class="username" id="navbar-username">User</span>
+            <button class="logout-btn" id="logout-btn" title="Log Out">🔌</button>
+        </div>
+    </div>
+</header>
+
+<script>
+    // Show current formatted date on navbar
+    (() => {
+        const dateDisplay = document.getElementById("nav-date-display");
+        if (dateDisplay) {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            dateDisplay.textContent = new Date().toLocaleDateString('en-US', options);
+        }
+    })();
+</script>
+
+<style>
+    .app-navbar {
+        height: 72px;
+        border-bottom: 1px solid var(--border-color);
+        padding: 0 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgba(6, 8, 12, 0.6);
+        backdrop-filter: blur(12px);
+    }
+    
+    .date-today {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-muted);
+    }
+    
+    .user-pill {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background-color: rgba(6, 8, 12, 0.4);
+        border: 1px solid var(--border-color);
+        padding: 6px 16px;
+        border-radius: 30px;
+    }
+    
+    .user-avatar {
+        font-size: 14px;
+    }
+    
+    .username {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-main);
+    }
+    
+    .logout-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 13px;
+        color: var(--text-muted);
+        padding: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: color 0.2s;
+    }
+    .logout-btn:hover {
+        color: var(--danger);
+    }
+</style>

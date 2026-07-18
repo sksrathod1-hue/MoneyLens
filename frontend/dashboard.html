@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyLens - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="app-body">
+    
+    <div class="app-wrapper">
+        <!-- Sidebar Navigation (Loaded dynamically) -->
+        <div id="sidebar-container"></div>
+        
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Navbar (Loaded dynamically) -->
+            <div id="navbar-container"></div>
+            
+            <div class="content-body">
+                <!-- Welcome Section -->
+                <div class="welcome-banner">
+                    <div>
+                        <h1 class="greeting">Welcome, <span id="username-display">User</span>!</h1>
+                        <p class="greeting-sub">Here is your financial status overview for this month.</p>
+                    </div>
+                    <div class="quick-actions">
+                        <a href="transactions.html?add=true" class="btn btn-primary">⚡ Log Transaction</a>
+                    </div>
+                </div>
+                
+                <!-- Financial Summary Cards -->
+                <div class="metrics-grid">
+                    <div class="metric-card income">
+                        <div class="m-icon">📈</div>
+                        <div class="m-details">
+                            <span class="m-title">Monthly Income</span>
+                            <h2 class="m-val" id="income-val">₹0.00</h2>
+                        </div>
+                    </div>
+                    <div class="metric-card expense">
+                        <div class="m-icon">📉</div>
+                        <div class="m-details">
+                            <span class="m-title">Monthly Spending</span>
+                            <h2 class="m-val" id="expense-val">₹0.00</h2>
+                        </div>
+                    </div>
+                    <div class="metric-card net">
+                        <div class="m-icon">💰</div>
+                        <div class="m-details">
+                            <span class="m-title">Net Savings</span>
+                            <h2 class="m-val" id="savings-val">₹0.00</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Dashboard Grid -->
+                <div class="dashboard-grid">
+                    
+                    <!-- Left Column: Transactions & Budgets -->
+                    <div class="grid-col-left">
+                        
+                        <!-- Recent Transactions -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Recent Activity</h3>
+                                <a href="transactions.html" class="card-action">View All</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="transactions-list-mini" id="recent-transactions-list">
+                                    <!-- Rendered dynamically -->
+                                    <p class="text-muted">Loading transactions...</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Budget Progress -->
+                        <div class="card mt-20">
+                            <div class="card-header">
+                                <h3 class="card-title">Active Budgets</h3>
+                                <a href="budget.html" class="card-action">Manage Budgets</a>
+                            </div>
+                            <div class="card-body" id="budgets-progress-list">
+                                <!-- Rendered dynamically -->
+                                <p class="text-muted">Loading budgets...</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Right Column: AI Insight & Tips -->
+                    <div class="grid-col-right">
+                        
+                        <!-- AI Insights Card -->
+                        <div class="card ai-insight-card">
+                            <div class="card-header">
+                                <h3 class="card-title">✨ AI Wealth Advice</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="insight-wrapper" id="ai-insight-content">
+                                    <h4 id="insight-title">Analyzing habits...</h4>
+                                    <p id="insight-text">Please log some transactions or forward SMS logs so the AI can evaluate your expenditure patterns.</p>
+                                    <span class="insight-tag" id="insight-tag">general</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quick SMS Forward Info -->
+                        <div class="card mt-20 sms-forward-card">
+                            <div class="card-body">
+                                <h4>📱 SMS Forwarder</h4>
+                                <p>Automate logs by forwarding transaction SMS to our backend webhook endpoint using any SMS forwarder app.</p>
+                                <div class="code-box">
+                                    <small>Webhook URL:</small>
+                                    <code id="webhook-url-display">http://localhost:5000/api/sms/webhook</code>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <!-- Footer (Loaded dynamically) -->
+            <div id="footer-container"></div>
+        </main>
+    </div>
+    
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
