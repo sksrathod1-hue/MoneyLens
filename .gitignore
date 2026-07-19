@@ -22,3 +22,7 @@ Thumbs.db
 # IDE settings
 .vscode/
 .idea/
+
+# Environment files
+.env
+backend/.env
