@@ -516,3 +516,12 @@ a:hover {
         grid-template-columns: 1fr;
     }
 }
+
+/* Custom Money Cursors */
+* {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' style='font-size: 24px;'%3E%3Ctext y='24'%3E💵%3C/text%3E%3C/svg%3E"), auto;
+}
+
+a, button, select, input[type="submit"], input[type="button"], input[type="text"], input[type="password"], input[type="number"], input[type="email"], select option, .feature-card, .btn, .auth-logo, .budget-delete-btn, .delete-btn, .receipt-link, .tx-icon-bullet {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' style='font-size: 24px;'%3E%3Ctext y='24'%3E💸%3C/text%3E%3C/svg%3E"), pointer;
+}
